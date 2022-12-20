@@ -1,5 +1,4 @@
-[![Build Status](https://dev.azure.com/asottile/asottile/_apis/build/status/asottile.flake8-match?branchName=main)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=69&branchName=main)
-[![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/asottile/asottile/69/main.svg)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=69&branchName=main)
+[![Build Status](https://dev.azure.com/chrisgrant0527/flake8/_apis/build/status/christophergrant.flake8-pyspark-collect?repoName=christophergrant%2Fflake8-pyspark-collect&branchName=main)](https://dev.azure.com/chrisgrant0527/flake8/_build/latest?definitionId=1&repoName=christophergrant%2Fflake8-pyspark-collect&branchName=main)[![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/asottile/asottile/69/main.svg)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=69&branchName=main)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/asottile/flake8-match/main.svg)](https://results.pre-commit.ci/latest/github/asottile/flake8-match/main)
 
 flake8-pyspark-collect
