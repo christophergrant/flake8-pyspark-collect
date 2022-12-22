@@ -21,7 +21,7 @@ pip install flake8-pyspark-collect
 
 ## rationale
 
-[DataFrame.collect()](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.collect.html) is a common anti-pattern in Apache Spark. Apache Spark is a parallel processing framework, while operating on data that has been collect()ed is inherently not parallel. It can also lead to bad user experience and instability. There are some legitimate purposes of using collect(), but in my experience, a large amount of its usage is not warranted and does not help the user. For these reasons, we offer this plugin that will alert when DataFrame.collect() is being used.
+The usage of [DataFrame.collect()](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.collect.html) is a common anti-pattern in Apache Spark. Apache Spark is a parallel processing framework that helps distribute computations over a network of resources. When you use `collect()`, you put all of the data onto a single node, which is not parallel. Bad usage of collect can lead to cluster instability and bad user experience. There are some legitimate purposes of using collect(), but in my experience, a large amount of its usage is not warranted and does not help the user. For these reasons, we offer this plugin that will issue alerts when DataFrame.collect() is being used.
 
 ## as a pre-commit hook
 
