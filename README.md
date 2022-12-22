@@ -21,7 +21,7 @@ pip install flake8-pyspark-collect
 
 ## rationale
 
-lol
+[DataFrame.collect()](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.collect.html) is a common anti-pattern in Apache Spark. Apache Spark is a parallel processing framework, while operating on data that has been collect()ed is inherently not parallel. It can also lead to bad user experience and instability. There are some legitimate purposes of using collect(), but in my experience, a large amount of its usage is not warranted and does not help the user. For these reasons, we offer this plugin that will alert when DataFrame.collect() is being used.
 
 ## as a pre-commit hook
 
@@ -39,7 +39,7 @@ Sample `.pre-commit-config.yaml`:
 
 ## an inside look
 
-Admittedly, I did not write a majority of this code. This is my first flake8 plugin and I have a bare understanding of [ASTs](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and a passing understanding of DevOps. I credit the creation of this plugin to the work of @asottile, specifically [this repo](https://github.com/asottile/flake8-match), and also to OpenAI's ChatGPT to write [this portion](https://github.com/christophergrant/flake8-pyspark-collect/blob/main/flake8_collect.py#L16) of the plugin. 
+Admittedly, I did not write a majority of this code. This is my first flake8 plugin, I have a bare understanding of [ASTs](https://en.wikipedia.org/wiki/Abstract_syntax_tree), and a passing understanding of DevOps. I credit the creation of this plugin to the work of @asottile, specifically [this repo](https://github.com/asottile/flake8-match), and also to OpenAI's ChatGPT to write [this portion](https://github.com/christophergrant/flake8-pyspark-collect/blob/main/flake8_collect.py#L16) of the plugin. 
 
 For the ChatGPT portion, I used this series of prompts: `write a python program that parses the AST of a pyspark program, intercepting any collect() method calls`. The code was not correct, so I directed ChatGPT to issue a correction: `collect is a method, not a function. correct this code to intercept collect() method calls`. I then put these parts together and added some basic tests to make sure that things worked. 
 
