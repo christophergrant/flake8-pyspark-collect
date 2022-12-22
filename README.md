@@ -17,7 +17,7 @@ pip install flake8-pyspark-collect
 
 | Code   | Description          |
 |--------|----------------------|
-| PS0001 | do not use collect() |
+| PS001 | do not use collect()  |
 
 ## rationale
 
@@ -36,3 +36,11 @@ Sample `.pre-commit-config.yaml`:
     -   id: flake8
         additional_dependencies: [flake8-pyspark-collect==1.0.0]
 ```
+
+## an inside look
+
+Admittedly, I did not write a majority of this code. This is my first flake8 plugin and I have a bare understanding of [ASTs](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and a passing understanding of DevOps. I credit the creation of this plugin to the work of @asottile, specifically [this repo](https://github.com/asottile/flake8-match), and also to OpenAI's ChatGPT to write [this portion](https://github.com/christophergrant/flake8-pyspark-collect/blob/main/flake8_collect.py#L16) of the plugin. 
+
+For the ChatGPT portion, I used this series of prompts: `write a python program that parses the AST of a pyspark program, intercepting any collect() method calls`. The code was not correct, so I directed ChatGPT to issue a correction: `collect is a method, not a function. correct this code to intercept collect() method calls`. I then put these parts together and added some basic tests to make sure that things worked. 
+
+That being said, I'm sure the code can be improved futher.
